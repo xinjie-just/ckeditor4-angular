@@ -66,6 +66,13 @@ export class CKEditorComponent implements AfterViewInit, OnDestroy, ControlValue
 	@Input() type: CKEditor4.EditorType = CKEditor4.EditorType.CLASSIC;
 
 	/**
+	 * CKEditor 4 script url address. Script will be loaded only if CKEDITOR namespace is missing.
+	 *
+	 * Defaults to 'https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js'
+	 */
+	@Input() editorUrl = 'https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js';
+
+	/**
 	 * Keeps track of the editor's data.
 	 *
 	 * It's also decorated as an input which is useful when not using the ngModel.
@@ -248,13 +255,6 @@ export class CKEditorComponent implements AfterViewInit, OnDestroy, ControlValue
 	private _data: string = null;
 
 	private _destroyed: boolean = false;
-
-	/**
-	 * CKEditor 4 script url address. Script will be loaded only if CKEDITOR namespace is missing.
-	 *
-	 * Defaults to 'https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js'
-	 */
-	@Input() editorUrl = 'https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js';
 
 	constructor( private elementRef: ElementRef, private ngZone: NgZone ) {}
 
